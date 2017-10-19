@@ -1,5 +1,7 @@
+
+import { AppConfig } from './app.config.model';
 import { Address } from './address.model';
 import { Post } from './post.model';
 
-export { Address, Post }
+export { AppConfig, Address, Post }
 

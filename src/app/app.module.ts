@@ -3,11 +3,15 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppRoutingModule }     from './app.routing.module';
+import { APP_CONFIG, useValue as AppConfigUseValue } from './app.config';
+
+import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
-import { DataService } from './services/data.service';
 import { AboutComponent } from './components/about/about.component';
+
+import { DataService } from './services/data.service';
+import { myServiceProvider } from './services/my.service.provider';
 
 
 @NgModule({
@@ -23,7 +27,11 @@ import { AboutComponent } from './components/about/about.component';
     AppRoutingModule
   ],
   providers: [
-    DataService
+    //{ provide: DataService, useExisting: DataService},
+    //{ provide: DataService, useValue: someValue},
+    { provide: DataService, useClass: DataService },
+    myServiceProvider,
+    { provide: APP_CONFIG, useValue: AppConfigUseValue }
   ],
   bootstrap: [AppComponent]
 })
