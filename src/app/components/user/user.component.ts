@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-//import * as m from '../../models/index';
-import { Address } from '../../models/address.model';
-import { Post } from '../../models/post.model';
+import * as m from '../../models/index';
 
 import { DataService } from '../../services/data.service';
 
@@ -14,9 +12,9 @@ export class UserComponent implements OnInit {
   name: string;
   age: number;
   email: string;
-  address: Address;
+  address: m.Address;
   hobbies: any[];
-  posts: Post[];
+  posts: m.Post[];
   isEdit:boolean;
   constructor(private ds: DataService) {
 

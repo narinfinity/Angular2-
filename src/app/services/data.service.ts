@@ -9,7 +9,6 @@ export class DataService {
 
    }
    getPosts(){
-     return this.http.get(this.url + '/posts',)
-     .map(res=> res.json());
+     return this.http.get(this.url + '/posts',{}).map(res=> res.json());
    }
 }
