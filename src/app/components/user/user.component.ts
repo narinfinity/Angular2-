@@ -31,9 +31,7 @@ export class UserComponent implements OnInit {
     };
     this.hobbies = ['a', 1];
 
-    this.ds.getPosts().subscribe(posts => {
-      this.posts = posts;
-    });
+    this.ds.getPosts().subscribe(posts => this.posts = posts);
   }
   onClick() {
     alert('Hello');
