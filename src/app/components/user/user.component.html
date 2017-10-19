@@ -1,0 +1,47 @@
+<p>
+  {{name}} has:
+</p>
+<ul>
+  <li>Age: {{age}}</li>
+  <li>Email: {{email}}</li>
+  <li>Address: {{address.city}}</li>
+</ul>
+<button (click)="onClick()">Click Me</button>
+<button (click)="toggleEdit()">Edit User</button>
+
+<div *ngIf="isEdit">
+  <h3>Edit User</h3>
+  <form (submit)="addHobby(hobby.value, $event)">
+    <div>
+      <label for="name">Name: </label>
+      <input type="text" id="name" [(ngModel)]="name" name="name">
+      <br>
+      <label for="age">Age: </label>
+      <input type="text" id="age" [(ngModel)]="age" name="age">
+      <br>
+      <label for="email">Email: </label>
+      <input type="text" id="email" [(ngModel)]="email" name="email">
+  
+    </div>
+  
+    <input type="submit" value="Submit">
+  </form>  
+</div>
+
+<h3>Hobbies</h3>
+<form (submit)="addHobby(hobby.value, $event)">
+  <label for="hobby">Hobby: </label>
+  <input type="text" id="hobby" #hobby>
+
+  <input type="submit" value="Submit">
+</form>
+<ul>
+  <li *ngFor="let el of hobbies; let i = index">{{i+1}}. {{el}}
+    <button (click)="deleteHobby(el)">X</button>
+  </li>
+</ul>
+<h3>Posts</h3>
+<div *ngFor="let post of posts; let i = index">
+  <h4>{{post.title}}</h4>
+  <p>{{post.body}}</p>
+</div>
