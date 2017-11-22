@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 
 import { APP_CONFIG, useValue as AppConfigUseValue } from './app.config';
 
-import { AppRoutingModule } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { UserComponent } from './components/user/user.component';
 import { AboutComponent } from './components/about/about.component';
@@ -13,24 +12,31 @@ import { AboutComponent } from './components/about/about.component';
 import { DataService } from './services/data.service';
 import { myServiceProvider } from './services/my.service.provider';
 
+/* Feature Module */
+import { ContactModule } from './contact/contact.module';
+/* Routing Module */
+import { AppRoutingModule } from './app.routing.module';
 
 @NgModule({
+  id: module.id,
   declarations: [
     AppComponent,
     UserComponent,
-    AboutComponent
+    AboutComponent,
+
   ],
   imports: [
     BrowserModule,
+    ContactModule,
     FormsModule,
     HttpModule,
     AppRoutingModule
   ],
   providers: [
-    //{ provide: DataService, useExisting: DataService},
-    //{ provide: DataService, useValue: someValue},
+    // { provide: DataService, useExisting: DataService},
+    // { provide: DataService, useValue: someValue},
     { provide: DataService, useClass: DataService },
-    myServiceProvider,
+    // myServiceProvider,
     { provide: APP_CONFIG, useValue: AppConfigUseValue }
   ],
   bootstrap: [AppComponent]

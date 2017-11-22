@@ -9,7 +9,7 @@ import { APP_CONFIG } from '../app.config';
 export class DataService {
   url: string;
   constructor(
-    private http: Http, 
+    private http: Http,
     @Inject(APP_CONFIG) config: m.AppConfig
   ) {
       this.url = config.apiEndpoint;
